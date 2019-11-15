@@ -24,7 +24,7 @@ router.post("/register", (req, res) => {
   } else {
     res
       .status(400)
-      .json({ message: "invalid user info", errors: validateRessult.errors });
+      .json({ message: "invalid user info", errors: validateResult.errors });
   }
 });
 
@@ -55,8 +55,7 @@ router.post("/login", (req, res) => {
 
 function getJwtToken(username) {
   const payload = {
-    username,
-    role: "student" // this will probably come from the database
+    username
   };
 
   const secret = process.env.JWT_SECRET || "is it secret, is it safe?";
